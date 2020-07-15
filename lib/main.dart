@@ -1,4 +1,5 @@
 import 'package:farchis/drivingtips.dart';
+import 'package:farchis/emergencyservices.dart';
 import 'package:farchis/ourService.dart';
 import 'package:farchis/quotation.dart';
 import 'package:farchis/registercar.dart';
@@ -160,14 +161,24 @@ class MyStartPage extends StatelessWidget {
                           ),
                         ),
                         Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.directions_run,color: Colors.yellowAccent),
-                            SizedBox(width:10.0),
-                            Text("Emergency Services"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
+                        InkWell(
+                          onTap: () {
+                            // Within the `FirstRoute` widget
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => EmergenceService()),
+                            );
+                          },
+
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.directions_run,color: Colors.yellowAccent),
+                              SizedBox(width:10.0),
+                              Text("Emergency Services"),
+                              Spacer(),
+                              Icon(Icons.chevron_right)
+                            ],
+                          ),
                         ),
                         Divider(),
                         Row(
