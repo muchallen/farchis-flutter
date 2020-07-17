@@ -46,7 +46,7 @@ class MyTowing extends StatelessWidget {
                                         },
                                         child: Icon(Icons.arrow_back,color: Colors.white,)),
                                   SizedBox(width: 80.0,),
-                                  Text("Request Towing", textAlign: TextAlign.center,style: TextStyle(color: Colors.white),),]),),
+                                  Text("Request Towing", textAlign: TextAlign.center,style: TextStyle(color: Colors.white, fontWeight : FontWeight.bold),),]),),
                               color: Colors.blueAccent,
                             ),
                             SizedBox(height: 20,),

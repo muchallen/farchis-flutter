@@ -42,13 +42,18 @@ class MyServices extends StatelessWidget {
                                     );
                                   },
                                   child: Icon(Icons.arrow_back,
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 SizedBox(width:80.0),
-                                Text("Our Services"),
+                                Text("Our Services", style: TextStyle(fontWeight: FontWeight.bold),),
+
 
                               ],
+                            ),
+                            Container(
+                                margin: EdgeInsets.fromLTRB(100,0,100,0),
+                                child: Divider(color: Colors.grey,)
                             ),
                             SizedBox(height: 30.0,),
                             Row(

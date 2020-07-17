@@ -1,16 +1,16 @@
 import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
 
-class DrivingTips extends StatelessWidget {
+class InsuaranceServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: MyDrivingTips()
+        home: MyInsuaranceServices()
     );
   }
 }
 
-class MyDrivingTips extends StatelessWidget {
+class MyInsuaranceServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,24 +45,25 @@ class MyDrivingTips extends StatelessWidget {
                                     color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(width:90.0),
-                                Text("Driving Tips", style: TextStyle(fontWeight: FontWeight.bold),),
-
+                                SizedBox(width:60.0),
+                                Text("Insuarance Services", style: TextStyle(fontWeight: FontWeight.bold),),
+                                
 
                               ],
                             ),
                             Container(
-                                margin: EdgeInsets.fromLTRB(100,0,100,0),
-                                child: Divider(color: Colors.grey,)
+                              margin: EdgeInsets.fromLTRB(100,0,100,0),
+                              child: Divider(color: Colors.grey,)
                             ),
                             SizedBox(height: 30.0,),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.traffic,
-                                  color: Colors.green,
-                                ),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/oldmutual.png")),
                                 SizedBox(width:10.0),
-                                Text("Traffic Lights"),
+                                Text("Old Mutual"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -70,9 +71,12 @@ class MyDrivingTips extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.check_circle_outline,color: Colors.redAccent),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/nicoz.png")),
                                 SizedBox(width:10.0),
-                                Text("Speed Limit "),
+                                Text("Nicoz Diamond"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -80,9 +84,12 @@ class MyDrivingTips extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.question_answer,color: Colors.blueAccent),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/cell.png")),
                                 SizedBox(width:10.0),
-                                Text("FAQ Driving"),
+                                Text("Econet insuarance"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -90,10 +97,12 @@ class MyDrivingTips extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.drive_eta,
-                                  color: Colors.orangeAccent,),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/zimnat.png")),
                                 SizedBox(width:10.0),
-                                Text("Off Road Driving"),
+                                Text("Zimnat Insuarance"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -112,11 +121,12 @@ class MyDrivingTips extends StatelessWidget {
                           children: <Widget>[
                             Row(
                               children: <Widget>[
-                                Icon(Icons.local_car_wash,
-                                  color: Colors.orangeAccent,
-                                ),
+                            Container(
+                            height: 40,
+                            width: 40,
+                            child: Image.asset("images/cell.png")),
                                 SizedBox(width:10.0),
-                                Text("Road Driving"),
+                                Text("Cell Insuarance"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -124,9 +134,12 @@ class MyDrivingTips extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.directions_walk,color: Colors.blueAccent),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/minerva_insurance.png")),
                                 SizedBox(width:10.0),
-                                Text("Pedestrian"),
+                                Text("THI Insuarance"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -134,9 +147,12 @@ class MyDrivingTips extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.motorcycle,color: Colors.redAccent),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/evolution_insurance.png")),
                                 SizedBox(width:10.0),
-                                Text("Cyclists"),
+                                Text("Evolution Insuarance"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -144,10 +160,12 @@ class MyDrivingTips extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Icon(Icons.notification_important,
-                                  color: Colors.lightBlue,),
+                                Container(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset("images/quality_insurance.jpg")),
                                 SizedBox(width:10.0),
-                                Text("Night Driving"),
+                                Text("Quality Insuarance"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -158,7 +176,6 @@ class MyDrivingTips extends StatelessWidget {
                         ),
                       )
                   ),
-
 
                 ],
               ),

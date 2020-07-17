@@ -42,13 +42,18 @@ class MyEmergencyServices extends StatelessWidget {
                                     );
                                   },
                                   child: Icon(Icons.arrow_back,
-                                    color: Colors.grey,
+                                    color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(width:80.0),
-                                Text("Emergency Services"),
+                                SizedBox(width:60.0),
+                                Text("Emergency Services", style: TextStyle(fontWeight: FontWeight.bold),),
+
 
                               ],
+                            ),
+                            Container(
+                                margin: EdgeInsets.fromLTRB(100,0,100,0),
+                                child: Divider(color: Colors.grey,)
                             ),
                             SizedBox(height: 30.0,),
                             Row(
@@ -181,119 +186,98 @@ class MyEmergencyServices extends StatelessWidget {
                   ),
                SizedBox(height: 10.0,),
                Card(
-
-                 margin: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
-                 child: Padding(
-
-                   padding: EdgeInsets.all(8.0),
-
-                   child: Column(
-                     mainAxisSize: MainAxisSize.max,
-                     children: <Widget>[
-                       Row(
-                         mainAxisSize: MainAxisSize.max,
-                         children: <Widget>[
-                           Card(
-                             color: Colors.black26,
-                             child: Padding(
-                               padding: const EdgeInsets.all(8.0),
-                               child: Row(
-                                 mainAxisSize: MainAxisSize.max,
-                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                 children: <Widget>[
-                                   Container(
-                                     height: 80.0,
-                                     width: 100.0,
-                                     decoration: BoxDecoration(
-                                       image: DecorationImage(
-                                         image: AssetImage("images/hospitalcross.png"),
-
-                                       ),
-                                     ),
-                                   ),
-
-                                   Container(
-                                     child: Text("Tap to call", style: TextStyle(color: Colors.white),),
-                                   )
-                                 ],
-                               ),
-                             ),
-                           ),
-                         ],
-                       ),
-                       Row(
-                         children: <Widget>[
-                           Padding(
-                             padding: const EdgeInsets.all(10.0),
-                             child: Card(
-                               color: Colors.lightBlue,
-
-                               child: Padding(
-                                 padding: const EdgeInsets.all(8.0),
-                                 child: Row(
-                                   children: <Widget>[
-                                     Container(
-                                       height: 80.0,
-                                       width: 100.0,
-                                       decoration: BoxDecoration(
-                                         image: DecorationImage(
-                                           image: AssetImage("images/mars.png"),
-
-                                         ),
-                                       ),
-
-                                     ),
-                                     SizedBox(height: 5.0,),
-                                     Container(
-                                       child: Text("Tap to call", style: TextStyle(color: Colors.white),),
-                                     )
-                                   ],
-                                 ),
-                               ),
-                             ),
-                           ),
-
-                         ],
-                       ),
-                       Row(
-                         children: <Widget>[
-                           Padding(
-                             padding: const EdgeInsets.all(10.0),
-                             child: Card(
-                               color: Colors.lightBlue,
-
-                               child: Padding(
-                                 padding: const EdgeInsets.all(8.0),
-                                 child: Row(
-                                   children: <Widget>[
-                                     Container(
-                                       height: 80.0,
-                                       width: 100.0,
-                                       decoration: BoxDecoration(
-                                         image: DecorationImage(
-                                           image: AssetImage("images/mars.png"),
-
-                                         ),
-                                       ),
-
-                                     ),
-                                     SizedBox(height: 5.0,),
-                                     Container(
-                                       child: Text("Tap to call", style: TextStyle(color: Colors.white),),
-                                     )
-                                   ],
-                                 ),
-                               ),
-                             ),
-                           ),
-
-                         ],
-                       ),
-
-                     ],
-                   ),
+                 margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
+                 child: Row(
+                   mainAxisSize: MainAxisSize.max,
+                   children: <Widget>[
+                     Container(
+                         padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
+                         child: Container(
+                           width: 100.0,
+                            height: 80.0,
+                         decoration: BoxDecoration(
+                             image : DecorationImage(
+                             image: AssetImage("images/hospitalcross.png")
+                            ),
+                         ),
+                           child: null,
+                         ),
+                     ),
+                     Column(
+                       children: <Widget>[
+                         Text("Hospitals", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),),
+                         SizedBox(height: 5.0,),
+                         Text("+263 673 987"),
+                         Text("+263 673 987"),
+                         Text("Tap to call", style: TextStyle(color: Colors.green),)
+                       ],
+                     )
+                   ],
                  ),
                ),
+                  SizedBox(height: 10.0,),
+                  Card(
+                    margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
+                          child: Container(
+                            width: 100.0,
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              image : DecorationImage(
+                                  image: AssetImage("images/zrplogo.png")
+                              ),
+                            ),
+                            child: null,
+                          ),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text("Police", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueAccent),),
+                            SizedBox(height: 5.0,),
+                            Text("+263 673 987"),
+                            Text("+263 673 987"),
+                            Text("Tap to call", style: TextStyle(color: Colors.green),)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10.0,),
+                  Card(
+                    margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
+                          child: Container(
+                            width: 100.0,
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              image : DecorationImage(
+                                  image: AssetImage("images/fireservicelogo.png")
+                              ),
+                            ),
+                            child: null,
+                          ),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text("FireBrigade", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),),
+                            SizedBox(height: 5.0,),
+                            Text("+263 673 987"),
+                            Text("+263 673 987"),
+                            Text("Tap to call", style: TextStyle(color: Colors.green),)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+
 
                 ],
               ),

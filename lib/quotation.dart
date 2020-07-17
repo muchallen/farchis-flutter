@@ -46,7 +46,7 @@ class MyQuotation extends StatelessWidget {
                                 },
                                   child: Icon(Icons.arrow_back, color: Colors.white,)),
                               SizedBox(width: 80.0,),
-                              Text("Get A Qoute", textAlign: TextAlign.center,style: TextStyle(color: Colors.white),),
+                              Text("Get A Qoute", textAlign: TextAlign.center,style: TextStyle(color: Colors.white ,fontWeight: FontWeight.bold),),
                             ],
                           ),
                            color: Colors.blueAccent,

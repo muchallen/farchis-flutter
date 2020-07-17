@@ -1,5 +1,6 @@
 import 'package:farchis/drivingtips.dart';
 import 'package:farchis/emergencyservices.dart';
+import 'package:farchis/insuaranceservices.dart';
 import 'package:farchis/ourService.dart';
 import 'package:farchis/quotation.dart';
 import 'package:farchis/registercar.dart';
@@ -170,26 +171,44 @@ class MyStartPage extends StatelessWidget {
                             );
                           },
 
+                          child: InkWell(
+                            onTap: () {
+                              // Within the `FirstRoute` widget
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => EmergenceService()),
+                              );
+                            },
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.directions_run,color: Colors.yellowAccent),
+                                SizedBox(width:10.0),
+                                Text("Emergency Services"),
+                                Spacer(),
+                                Icon(Icons.chevron_right)
+                              ],
+                            ),
+                          ),
+                        ),
+                        Divider(),
+                        InkWell(
+                          onTap: () {
+                            // Within the `FirstRoute` widget
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => InsuaranceServices()),
+                            );
+                          },
                           child: Row(
                             children: <Widget>[
-                              Icon(Icons.directions_run,color: Colors.yellowAccent),
+                              Icon(Icons.assignment,
+                                color: Colors.black26,),
                               SizedBox(width:10.0),
-                              Text("Emergency Services"),
+                              Text("Insuarance Cover"),
                               Spacer(),
                               Icon(Icons.chevron_right)
                             ],
                           ),
-                        ),
-                        Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.assignment,
-                              color: Colors.black26,),
-                            SizedBox(width:10.0),
-                            Text("Insuarance Cover"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
                         ),
                         Divider(),
 
