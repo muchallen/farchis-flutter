@@ -1,4 +1,5 @@
-import 'package:farchis/main.dart';
+import 'package:farchis/Data/DrivingTipsData.dart';
+import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
 
 class DrivingTips extends StatelessWidget {
@@ -11,6 +12,11 @@ class DrivingTips extends StatelessWidget {
 }
 
 class MyDrivingTips extends StatelessWidget {
+
+  final List<DrivingTipsData> drivingtipsdata =[
+    new DrivingTipsData("traffic lights", ""),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

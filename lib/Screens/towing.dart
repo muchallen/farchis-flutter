@@ -1,16 +1,16 @@
-import 'package:farchis/main.dart';
+import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
 
-class RegisterCar extends StatelessWidget {
+class Towing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: MyRegisterCar()
+        home: MyTowing()
     );
   }
 }
 
-class MyRegisterCar extends StatelessWidget {
+class MyTowing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,18 +35,18 @@ class MyRegisterCar extends StatelessWidget {
                               width: double.infinity,
                               height: 50.0,
                               child: Container(
-                                margin: EdgeInsets.all(8.0),
-                                child: Row(children: <Widget>[
-                                  InkWell(
-                                      onTap: (){
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => StartPage()),
-                                        );
-                                      },
-                                      child: Icon(Icons.arrow_back,color: Colors.white,)),
+                                  margin: EdgeInsets.all(8.0),
+                                  child: Row(children: <Widget>[
+                                    InkWell(
+                                        onTap: (){
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => StartPage()),
+                                          );
+                                        },
+                                        child: Icon(Icons.arrow_back,color: Colors.white,)),
                                   SizedBox(width: 80.0,),
-                                  Text("Register Vehicle", textAlign: TextAlign.center,style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),]),),
+                                  Text("Request Towing", textAlign: TextAlign.center,style: TextStyle(color: Colors.white, fontWeight : FontWeight.bold),),]),),
                               color: Colors.blueAccent,
                             ),
                             SizedBox(height: 20,),
@@ -78,12 +78,12 @@ class MyRegisterCar extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: <Widget>[
-                                  Text("Model   "),
+                                  Text("Type      "),
                                   SizedBox(width: 5.0,),
                                   Flexible(
                                     child: TextField(
                                       decoration: new InputDecoration(
-                                        hintText: "e.g Fortuna , C200 etc",
+                                        hintText: "e.g suv, truck etc ",
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(color: Colors.blue, width: 1.0),
                                         ),
@@ -101,12 +101,12 @@ class MyRegisterCar extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: <Widget>[
-                                  Text("Year      "),
+                                  Text("Location"),
                                   SizedBox(width: 5.0,),
                                   Flexible(
                                     child: TextField(
                                       decoration: new InputDecoration(
-                                        hintText: " 2000 ",
+                                        hintText: " e.g 105 Seke Road  ",
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(color: Colors.blue, width: 1.0),
                                         ),
@@ -165,13 +165,91 @@ class MyRegisterCar extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  Text("Contact Name "),
+                                  SizedBox(width: 5.0,),
+                                  Flexible(
+                                    child: TextField(
+                                      decoration: new InputDecoration(
+                                        hintText: "Contact Name ",
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.green, width: 1.0),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  Text("Contact No.    "),
+                                  SizedBox(width: 5.0,),
+                                  Flexible(
+                                    child: TextField(
+                                      decoration: new InputDecoration(
+                                        hintText: "Contact Number",
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.green, width: 1.0),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  Text("Naration"),
+                                  SizedBox(width: 5.0,),
+                                  Flexible(
+                                    child: TextField(
+                                      decoration: new InputDecoration(
+                                        hintText: " Full explanation of the car state ,",
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.green, width: 1.0),
+                                        ),
+                                      ),
+                                      keyboardType: TextInputType.multiline,
+
+                                      maxLines: 2,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Center(
+                              child: Text(" Upload Image"),
+                            ),
+                            Center(
+                              child: Icon(Icons.camera_alt),
+                            ),
                             SizedBox(height: 10.0,),
                             RaisedButton(
                               onPressed: (){},
                               color: Colors.blueAccent,
 
-                              child: Text('Register', style: TextStyle(fontSize: 20, color: Colors.white),),),
-                            SizedBox(height: 20.0,),
+                              child: Text('Send', style: TextStyle(fontSize: 20, color: Colors.white),),),
+                            SizedBox(height: 10.0,),
                           ] ),
                     ),
 

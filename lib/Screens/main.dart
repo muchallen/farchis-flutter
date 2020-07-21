@@ -1,10 +1,11 @@
-import 'package:farchis/drivingtips.dart';
-import 'package:farchis/emergencyservices.dart';
-import 'package:farchis/insuaranceservices.dart';
-import 'package:farchis/ourService.dart';
-import 'package:farchis/quotation.dart';
-import 'package:farchis/registercar.dart';
-import 'package:farchis/towing.dart';
+import 'package:farchis/Screens/drivingtips.dart';
+import 'package:farchis/Screens/emergencyservices.dart';
+import 'package:farchis/Screens/insuaranceservices.dart';
+import 'package:farchis/Screens/ourService.dart';
+import 'package:farchis/Screens/quotation.dart';
+import 'package:farchis/Screens/registercar.dart';
+import 'package:farchis/Screens/towing.dart';
+import 'package:farchis/Screens/weatherapp.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -254,15 +255,23 @@ class MyStartPage extends StatelessWidget {
                           ],
                         ),
                         Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.cloud_queue,
-                              color: Colors.black26,),
-                            SizedBox(width:10.0),
-                            Text("Weather Forecast"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => WeatherReport()),
+                            );
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.cloud_queue,
+                                color: Colors.black26,),
+                              SizedBox(width:10.0),
+                              Text("Weather Forecast"),
+                              Spacer(),
+                              Icon(Icons.chevron_right)
+                            ],
+                          ),
                         ),
                         Divider(),
 

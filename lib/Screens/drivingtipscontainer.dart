@@ -1,16 +1,20 @@
-import 'package:farchis/main.dart';
+import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
 
-class InsuaranceServices extends StatelessWidget {
+class DrivingTipsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: MyInsuaranceServices()
+        home: MyDrivingTipsContainer()
     );
   }
 }
 
-class MyInsuaranceServices extends StatelessWidget {
+class MyDrivingTipsContainer extends StatelessWidget {
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,25 +49,24 @@ class MyInsuaranceServices extends StatelessWidget {
                                     color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(width:60.0),
-                                Text("Insuarance Services", style: TextStyle(fontWeight: FontWeight.bold),),
-                                
+                                SizedBox(width:90.0),
+                                Text("Driving Tips", style: TextStyle(fontWeight: FontWeight.bold),),
+
 
                               ],
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(100,0,100,0),
-                              child: Divider(color: Colors.grey,)
+                                margin: EdgeInsets.fromLTRB(100,0,100,0),
+                                child: Divider(color: Colors.grey,)
                             ),
                             SizedBox(height: 30.0,),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/oldmutual.png")),
+                                Icon(Icons.traffic,
+                                  color: Colors.green,
+                                ),
                                 SizedBox(width:10.0),
-                                Text("Old Mutual"),
+                                Text("Traffic Lights"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -71,12 +74,9 @@ class MyInsuaranceServices extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/nicoz.png")),
+                                Icon(Icons.check_circle_outline,color: Colors.redAccent),
                                 SizedBox(width:10.0),
-                                Text("Nicoz Diamond"),
+                                Text("Speed Limit "),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -84,12 +84,9 @@ class MyInsuaranceServices extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/cell.png")),
+                                Icon(Icons.question_answer,color: Colors.blueAccent),
                                 SizedBox(width:10.0),
-                                Text("Econet insuarance"),
+                                Text("FAQ Driving"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -97,12 +94,10 @@ class MyInsuaranceServices extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/zimnat.png")),
+                                Icon(Icons.drive_eta,
+                                  color: Colors.orangeAccent,),
                                 SizedBox(width:10.0),
-                                Text("Zimnat Insuarance"),
+                                Text("Off Road Driving"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -121,12 +116,11 @@ class MyInsuaranceServices extends StatelessWidget {
                           children: <Widget>[
                             Row(
                               children: <Widget>[
-                            Container(
-                            height: 40,
-                            width: 40,
-                            child: Image.asset("images/cell.png")),
+                                Icon(Icons.local_car_wash,
+                                  color: Colors.orangeAccent,
+                                ),
                                 SizedBox(width:10.0),
-                                Text("Cell Insuarance"),
+                                Text("Road Driving"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -134,12 +128,9 @@ class MyInsuaranceServices extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/minerva_insurance.png")),
+                                Icon(Icons.directions_walk,color: Colors.blueAccent),
                                 SizedBox(width:10.0),
-                                Text("THI Insuarance"),
+                                Text("Pedestrian"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -147,12 +138,9 @@ class MyInsuaranceServices extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/evolution_insurance.png")),
+                                Icon(Icons.motorcycle,color: Colors.redAccent),
                                 SizedBox(width:10.0),
-                                Text("Evolution Insuarance"),
+                                Text("Cyclists"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -160,12 +148,10 @@ class MyInsuaranceServices extends StatelessWidget {
                             Divider(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                    height: 40,
-                                    width: 40,
-                                    child: Image.asset("images/quality_insurance.jpg")),
+                                Icon(Icons.notification_important,
+                                  color: Colors.lightBlue,),
                                 SizedBox(width:10.0),
-                                Text("Quality Insuarance"),
+                                Text("Night Driving"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -176,6 +162,7 @@ class MyInsuaranceServices extends StatelessWidget {
                         ),
                       )
                   ),
+
 
                 ],
               ),
