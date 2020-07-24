@@ -11,22 +11,6 @@ class InsuaraceContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.vertical,
-
-      children: <Widget>[
-        Container(
-          width: 300.0,
-          height: 500.0,
-          child: WebViewClass(name,url),),
-
-      ],
-
-
-      );
-
-
-
-      WebViewClass(name, url);
+    return WebViewClass(name, url);
   }
 }

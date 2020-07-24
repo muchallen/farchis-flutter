@@ -103,7 +103,7 @@ class MyInsuaranceServices extends StatelessWidget {
                               onTap: (){
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Nicoz Diamond", "https://www.nicozdiamond.co.zw")));
+                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Ecosure", "https://www.ecosure.co.zw")));
                               },
                               child: Row(
                                 children: <Widget>[
@@ -112,7 +112,7 @@ class MyInsuaranceServices extends StatelessWidget {
                                       width: 40,
                                       child: Image.asset("images/cell.png")),
                                   SizedBox(width:10.0),
-                                  Text("Econet insuarance"),
+                                  Text("Econet insurance"),
                                   Spacer(),
                                   Icon(Icons.chevron_right)
                                 ],
@@ -123,7 +123,7 @@ class MyInsuaranceServices extends StatelessWidget {
                               onTap: (){
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Nicoz Diamond", "https://www.nicozdiamond.co.zw")));
+                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Zimnat", "https://www.zimnat.co.zw")));
                               },
                               child: Row(
                                 children: <Widget>[
@@ -132,7 +132,7 @@ class MyInsuaranceServices extends StatelessWidget {
                                       width: 40,
                                       child: Image.asset("images/zimnat.png")),
                                   SizedBox(width:10.0),
-                                  Text("Zimnat Insuarance"),
+                                  Text("Zimnat Insurance"),
                                   Spacer(),
                                   Icon(Icons.chevron_right)
                                 ],
@@ -154,7 +154,7 @@ class MyInsuaranceServices extends StatelessWidget {
                               onTap: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Nicoz Diamond", "https://www.nicozdiamond.co.zw")));
+                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Cell Insurance", "https://www.cellinsurance.co.zw")));
                               },
                               child: Row(
                                 children: <Widget>[
@@ -174,7 +174,7 @@ class MyInsuaranceServices extends StatelessWidget {
                               onTap: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Nicoz Diamond", "https://www.nicozdiamond.co.zw")));
+                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Minerva", "https://www.minerva.co.zw")));
                               },
                               child: Row(
                                 children: <Widget>[
@@ -183,7 +183,7 @@ class MyInsuaranceServices extends StatelessWidget {
                                       width: 40,
                                       child: Image.asset("images/minerva_insurance.png")),
                                   SizedBox(width:10.0),
-                                  Text("THI Insuarance"),
+                                  Text("THI Insurance"),
                                   Spacer(),
                                   Icon(Icons.chevron_right)
                                 ],
@@ -194,7 +194,7 @@ class MyInsuaranceServices extends StatelessWidget {
                               onTap: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Nicoz Diamond", "https://www.nicozdiamond.co.zw")));
+                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Evolution Insurance", "http://www.evolutiongroupltd.com")));
                               },
                               child: Row(
                                 children: <Widget>[
@@ -214,7 +214,7 @@ class MyInsuaranceServices extends StatelessWidget {
                               onTap: (){
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Nicoz Diamond", "https://www.google.co.zw")));
+                                    MaterialPageRoute(builder: (context) =>InsuaraceContainer("Quality Insurance", "https://www.qualityinsurancecompany.com")));
                               },
                               child: Row(
                                 children: <Widget>[

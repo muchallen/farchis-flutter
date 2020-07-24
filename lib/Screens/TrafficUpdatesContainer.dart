@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 
 
-class DrivingTipsContainer extends StatelessWidget {
+class TrafficUpdatesContainer extends StatelessWidget {
   final String url;
   final String name;
 
-  DrivingTipsContainer(this.name, this.url);
+  TrafficUpdatesContainer(this.name, this.url);
 
   @override
   Widget build(BuildContext context) {

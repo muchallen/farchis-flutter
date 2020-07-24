@@ -1,4 +1,6 @@
+import 'package:farchis/Screens/TrafficUpdatesContainer.dart';
 import 'package:farchis/Screens/drivingtips.dart';
+import 'package:farchis/Screens/drivingtipscontainer.dart';
 import 'package:farchis/Screens/emergencyservices.dart';
 import 'package:farchis/Screens/insuaranceservices.dart';
 import 'package:farchis/Screens/ourService.dart';
@@ -92,7 +94,7 @@ class MyStartPage extends StatelessWidget {
                         },
                         child: Row(
                           children: <Widget>[
-                            Icon(Icons.add_alert,color: Colors.yellowAccent),
+                            Icon(Icons.add_alert,color: Colors.green),
                             SizedBox(width:10.0),
                             Text("Request Towing"),
                             Spacer(),
@@ -112,13 +114,23 @@ class MyStartPage extends StatelessWidget {
                         child: Row(
                           children: <Widget>[
                             Icon(Icons.directions_car,
-                            color: Colors.black26,),
+                            color: Colors.orange,),
                             SizedBox(width:10.0),
                             Text("Register Vehicle"),
                             Spacer(),
                             Icon(Icons.chevron_right)
                           ],
                         ),
+                      ),
+                      Divider(),
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.event,color: Colors.blueAccent),
+                          SizedBox(width:10.0),
+                          Text("Events"),
+                          Spacer(),
+                          Icon(Icons.chevron_right)
+                        ],
                       ),
                       Divider(),
 
@@ -135,7 +147,7 @@ class MyStartPage extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Icon(Icons.call,
-                              color: Colors.redAccent,
+                              color: Colors.green,
                             ),
                             SizedBox(width:10.0),
                             Text("Call Farchis"),
@@ -149,7 +161,7 @@ class MyStartPage extends StatelessWidget {
                               // Within the `FirstRoute` widget
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => DrivingTips()),
+                                MaterialPageRoute(builder: (context) => DrivingTipsContainer("Driving Tips", "https://www.aazimbabwe.co.zw/2018/01/17/skills-every-new-driver-should-have/")),
                               );
                             },
                           child: Row(
@@ -182,7 +194,7 @@ class MyStartPage extends StatelessWidget {
                             },
                             child: Row(
                               children: <Widget>[
-                                Icon(Icons.directions_run,color: Colors.yellowAccent),
+                                Icon(Icons.directions_run,color: Colors.deepOrange),
                                 SizedBox(width:10.0),
                                 Text("Emergency Services"),
                                 Spacer(),
@@ -203,7 +215,7 @@ class MyStartPage extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               Icon(Icons.assignment,
-                                color: Colors.black26,),
+                                color: Colors.purple,),
                               SizedBox(width:10.0),
                               Text("Insuarance Cover"),
                               Spacer(),
@@ -223,31 +235,29 @@ class MyStartPage extends StatelessWidget {
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.traffic,
-                              color: Colors.redAccent,
-                            ),
-                            SizedBox(width:10.0),
-                            Text("Traffic Updates"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => TrafficUpdatesContainer("Traffic Updates","https://www.google.com/maps/place/")),
+                            );
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.network_check,
+                                color: Colors.redAccent,
+                              ),
+                              SizedBox(width:10.0),
+                              Text("Convenience Services"),
+                              Spacer(),
+                              Icon(Icons.chevron_right)
+                            ],
+                          ),
                         ),
                         Divider(),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.hotel,color: Colors.blueAccent),
-                            SizedBox(width:10.0),
-                            Text("Hotels"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
-                        ),
-                        Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.headset_mic,color: Colors.yellowAccent),
+                            Icon(Icons.headset_mic,color: Colors.orange),
                             SizedBox(width:10.0),
                             Text("Customer Support"),
                             Spacer(),
@@ -265,13 +275,23 @@ class MyStartPage extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               Icon(Icons.cloud_queue,
-                                color: Colors.black26,),
+                                color: Colors.blueAccent,),
                               SizedBox(width:10.0),
                               Text("Weather Forecast"),
                               Spacer(),
                               Icon(Icons.chevron_right)
                             ],
                           ),
+                        ),
+                        Divider(),
+                        Row(
+                          children: <Widget>[
+                            Icon(Icons.message,color: Colors.green),
+                            SizedBox(width:10.0),
+                            Text("FAQ"),
+                            Spacer(),
+                            Icon(Icons.chevron_right)
+                          ],
                         ),
                         Divider(),
 
@@ -285,38 +305,8 @@ class MyStartPage extends StatelessWidget {
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.restaurant,
-                              color: Colors.redAccent,
-                            ),
-                            SizedBox(width:10.0),
-                            Text("Eating Places"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
-                        ),
-                        Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.event,color: Colors.blueAccent),
-                            SizedBox(width:10.0),
-                            Text("Events"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
-                        ),
-                        Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.message,color: Colors.yellowAccent),
-                            SizedBox(width:10.0),
-                            Text("FAQ"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
-                        ),
-                        Divider(),
+
+
                         Row(
                           children: <Widget>[
                             Icon(Icons.stars,
@@ -327,7 +317,7 @@ class MyStartPage extends StatelessWidget {
                             Icon(Icons.chevron_right)
                           ],
                         ),
-                        Divider(),
+
 
                       ],
                     ),

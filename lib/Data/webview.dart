@@ -27,6 +27,7 @@ class _WebViewClassState extends State<WebViewClass> {
       ),
       body: WebView(
         initialUrl: weburl,
+        javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (WebViewController webViewController) {
           _controller.complete(webViewController);
         },
