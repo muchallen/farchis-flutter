@@ -1,4 +1,5 @@
 import 'package:farchis/Data/wether/mainForecast.dart';
+import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
@@ -54,20 +55,7 @@ class _WeatherReportState extends State<WeatherReport> {
         catch (error) {
           print("failed to convert");
         }
-        humidity = list[0].main.humidity;
-        temperature = list[0].main.temp;
-        dummy = list[0].weather[0].descriptionstr;
 
-        speed = list[0].wind.speed;
-        day = list[0].dtTxt;
-
-
-        print("humidity " + humidity.toString() + "\n" +
-            "temperature " + temperature.toString() + "\n" +
-            "description " + dummy.toString() + "\n" +
-            "windspeed " + speed.toString() + "\n" +
-            "date " + formatter.format(day).toString() + "\n"
-        );
       });
     } else {
       print("failed try again");
@@ -84,6 +72,9 @@ class _WeatherReportState extends State<WeatherReport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Weather Update"),
+      ),
       body: SafeArea(
         child: Builder(
           builder: (context) => Container(
@@ -97,7 +88,7 @@ class _WeatherReportState extends State<WeatherReport> {
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
-                  SizedBox(height: 30.0,),
+
                   Card(
                       child: Container(
                         padding: EdgeInsets.all(10.0),
@@ -105,10 +96,9 @@ class _WeatherReportState extends State<WeatherReport> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Icon(Icons.arrow_back, color: Colors.black,),
+                            SizedBox(width: 5.0,),
                             Container(
                               width: 250.0,
-
                               child: TextField(
                                 controller: location,
                                 decoration: InputDecoration(
@@ -150,7 +140,7 @@ class _WeatherReportState extends State<WeatherReport> {
                             ),
 
                             Text(list == null ? "loading" : list[0].main.temp
-                                .toString() + "\u00B0"),
+                                .toString() + "\u00B0",style: TextStyle(color: Colors.white),),
                           ],
                         ),
                         SizedBox(height: 10.0,),
