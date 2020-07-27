@@ -11,6 +11,6 @@ class DrivingTipsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WebViewClass(name, url);
+    return SafeArea(child: WebViewClass(name, url));
   }
 }

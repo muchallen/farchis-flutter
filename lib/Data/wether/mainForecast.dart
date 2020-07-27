@@ -245,13 +245,17 @@ class Weather {
     this.main,
     this.description,
     this.icon,
+    this.descriptionstr,
+    this.iconstr
   });
 
   int id;
   MainEnum main;
   Description description;
   Iconz icon;
-  String ico;
+  String iconstr;
+  String descriptionstr;
+
 
 
 
@@ -260,6 +264,8 @@ class Weather {
     main: mainEnumValues.map[json["main"]],
     description: descriptionValues.map[json["description"]],
     icon: iconValues.map[json["icon"]],
+      descriptionstr:json["description"],
+    iconstr: json["icon"]
 
   );
 

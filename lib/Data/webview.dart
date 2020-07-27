@@ -14,6 +14,7 @@ class _WebViewClassState extends State<WebViewClass> {
 
   final String title;
   final String weburl;
+  var isLoading=true;
 
   _WebViewClassState(this.title, this.weburl);
 
@@ -21,16 +22,27 @@ class _WebViewClassState extends State<WebViewClass> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:  Text(title),
-      ),
-      body: WebView(
-        initialUrl: weburl,
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
+    return SafeArea(
+      minimum: EdgeInsets.all(15.0),
+      child: Scaffold(
+        appBar: AppBar(
+          title:  Text(title),
+        ),
+        body: Stack(
+          children: <Widget>[ WebView(
+            initialUrl: weburl,
+            javascriptMode: JavascriptMode.unrestricted,
+            onPageFinished: (_){
+              setState(() {
+                isLoading=false;
+              });
+            },
+            onWebViewCreated: (WebViewController webViewController) {
+              _controller.complete(webViewController);
+            },
+          ),
+            isLoading?Center( child: CircularProgressIndicator()) : Container(),
+        ]),
       ),
     );
   }
