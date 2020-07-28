@@ -34,6 +34,7 @@ class MyStartPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+
           child: ListView(
             children: <Widget>[
              Column(
