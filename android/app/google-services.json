@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "907377570025",
+    "firebase_url": "https://farchis-bbe96.firebaseio.com",
+    "project_id": "farchis-bbe96",
+    "storage_bucket": "farchis-bbe96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907377570025:android:40101af2dc2d0ec7cec078",
+        "android_client_info": {
+          "package_name": "com.example.farchis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907377570025-rphjplrpe71mekt2mecjf20oj2gkf7ui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs71PgI1ab5AEcPm4D8haqb4SETTO1b7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907377570025-rphjplrpe71mekt2mecjf20oj2gkf7ui.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "907377570025-uuctdspjvogl02dshrn6j2r2lskcr9vv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "net.centricdata.farchis"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907377570025:android:9c1897f87be138c7cec078",
+        "android_client_info": {
+          "package_name": "www.centricdata.net.farchis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907377570025-rphjplrpe71mekt2mecjf20oj2gkf7ui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs71PgI1ab5AEcPm4D8haqb4SETTO1b7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907377570025-rphjplrpe71mekt2mecjf20oj2gkf7ui.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "907377570025-uuctdspjvogl02dshrn6j2r2lskcr9vv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "net.centricdata.farchis"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
