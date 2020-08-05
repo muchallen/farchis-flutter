@@ -1,5 +1,6 @@
 import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Towing extends StatelessWidget {
   @override
@@ -11,6 +12,9 @@ class Towing extends StatelessWidget {
 }
 
 class MyTowing extends StatelessWidget {
+  final _firestore = Firestore.instance;
+  String vehicle, type, location, regnumber, color, contactperson, narration;
+  int contactnumber;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +64,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          vehicle = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "e.g. Mercedes",
                                           enabledBorder: OutlineInputBorder(
@@ -83,6 +90,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          type = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "e.g suv, truck etc ",
                                           enabledBorder: OutlineInputBorder(
@@ -106,6 +116,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          location = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: " e.g 105 Seke Road  ",
                                           enabledBorder: OutlineInputBorder(
@@ -129,6 +142,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          regnumber = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: " vehicle reg number ",
                                           enabledBorder: OutlineInputBorder(
@@ -152,6 +168,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          color = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "e.g red  ",
                                           enabledBorder: OutlineInputBorder(
@@ -175,6 +194,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          contactperson = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "Contact Name ",
                                           enabledBorder: OutlineInputBorder(
@@ -198,6 +220,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          contactnumber = value as int;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "Contact Number",
                                           enabledBorder: OutlineInputBorder(
@@ -221,6 +246,9 @@ class MyTowing extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          narration = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: " Full explanation of the car state ,",
                                           enabledBorder: OutlineInputBorder(
@@ -246,7 +274,18 @@ class MyTowing extends StatelessWidget {
                               ),
                               SizedBox(height: 10.0,),
                               RaisedButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  _firestore.collection('RequestTowing').add({
+                                    'vehicle': vehicle,
+                                    'type': type,
+                                    'location': location,
+                                    'regnumber': regnumber,
+                                    'color': color,
+                                    'contactperson': contactperson,
+                                    'contactnumber': contactnumber,
+                                    'narration': narration,
+                                  });
+                                },
                                 color: Colors.blueAccent,
 
                                 child: Text('Send', style: TextStyle(fontSize: 20, color: Colors.white),),),

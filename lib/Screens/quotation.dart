@@ -1,5 +1,6 @@
 import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Quotation extends StatelessWidget {
   @override
@@ -11,6 +12,8 @@ class Quotation extends StatelessWidget {
 }
 
 class MyQuotation extends StatelessWidget {
+  final _firestore = Firestore.instance;
+  String service, parts, details;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +64,9 @@ class MyQuotation extends StatelessWidget {
                                SizedBox(width: 5.0,),
                                Flexible(
                                 child: TextField(
+                                  onChanged: (value){
+                                    service = value;
+                                  },
                                   decoration: new InputDecoration(
                                     hintText: "e.g. panel beating, spray painting etc",
                                     enabledBorder: OutlineInputBorder(
@@ -86,6 +92,9 @@ class MyQuotation extends StatelessWidget {
                                 SizedBox(width: 5.0,),
                                 Flexible(
                                   child: TextField(
+                                    onChanged: (value){
+                                      parts = value;
+                                    },
                                     decoration: new InputDecoration(
                                       hintText: "parts to be service e.g door, wheels etc",
                                       enabledBorder: OutlineInputBorder(
@@ -111,6 +120,9 @@ class MyQuotation extends StatelessWidget {
                                 SizedBox(width: 5.0,),
                                 Flexible(
                                   child: TextField(
+                                    onChanged: (value){
+                                      details = value;
+                                    },
                                     decoration: new InputDecoration(
                                       hintText: " Full explanation of the service require",
                                       enabledBorder: OutlineInputBorder(
@@ -136,7 +148,13 @@ class MyQuotation extends StatelessWidget {
                           ),
                           SizedBox(height: 10.0,),
                        RaisedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            _firestore.collection('getAQuote').add({
+                              'service': service,
+                              'parts': parts,
+                              'details': details,
+                            });
+                          },
                           color: Colors.blueAccent,
 
                           child: Text('Send', style: TextStyle(fontSize: 20, color: Colors.white),),),

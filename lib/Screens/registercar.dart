@@ -1,5 +1,6 @@
 import 'package:farchis/Screens/main.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterCar extends StatelessWidget {
   @override
@@ -11,6 +12,9 @@ class RegisterCar extends StatelessWidget {
 }
 
 class MyRegisterCar extends StatelessWidget {
+  final _firestore = Firestore.instance;
+  String vehicle, model, regnumber, color;
+  int year;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +64,9 @@ class MyRegisterCar extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          vehicle = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "e.g. Mercedes",
                                           enabledBorder: OutlineInputBorder(
@@ -83,6 +90,9 @@ class MyRegisterCar extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          model = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "e.g Fortuna , C200 etc",
                                           enabledBorder: OutlineInputBorder(
@@ -106,6 +116,9 @@ class MyRegisterCar extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          year = value as int;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: " 2000 ",
                                           enabledBorder: OutlineInputBorder(
@@ -129,6 +142,9 @@ class MyRegisterCar extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          regnumber = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: " vehicle reg number ",
                                           enabledBorder: OutlineInputBorder(
@@ -152,6 +168,9 @@ class MyRegisterCar extends StatelessWidget {
                                     SizedBox(width: 5.0,),
                                     Flexible(
                                       child: TextField(
+                                        onChanged: (value){
+                                          color = value;
+                                        },
                                         decoration: new InputDecoration(
                                           hintText: "e.g red  ",
                                           enabledBorder: OutlineInputBorder(
@@ -168,7 +187,14 @@ class MyRegisterCar extends StatelessWidget {
                               ),
                               SizedBox(height: 10.0,),
                               RaisedButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  _firestore.collection('RegisterAVehicle').add({
+                                    'vehicle': vehicle,
+                                    'model': model,
+                                    'regnumber': regnumber,
+                                    'color': color,
+                                  });
+                                },
                                 color: Colors.blueAccent,
 
                                 child: Text('Register', style: TextStyle(fontSize: 20, color: Colors.white),),),
