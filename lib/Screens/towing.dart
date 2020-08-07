@@ -13,8 +13,8 @@ class Towing extends StatelessWidget {
 
 class MyTowing extends StatelessWidget {
   final _firestore = Firestore.instance;
-  String vehicle, type, location, regnumber, color, contactperson, narration;
-  int contactnumber;
+  String vehicle, type, location, regnumber, color, contactperson, narration ,contactnumber;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -221,7 +221,7 @@ class MyTowing extends StatelessWidget {
                                     Flexible(
                                       child: TextField(
                                         onChanged: (value){
-                                          contactnumber = value as int;
+                                          contactnumber = value;
                                         },
                                         decoration: new InputDecoration(
                                           hintText: "Contact Number",
@@ -275,14 +275,14 @@ class MyTowing extends StatelessWidget {
                               SizedBox(height: 10.0,),
                               RaisedButton(
                                 onPressed: (){
-                                  _firestore.collection('RequestTowing').add({
-                                    'vehicle': vehicle,
+                                  _firestore.collection('tows').add({
+                                    'name': vehicle,
                                     'type': type,
                                     'location': location,
                                     'regnumber': regnumber,
                                     'color': color,
-                                    'contactperson': contactperson,
-                                    'contactnumber': contactnumber,
+                                    'contactPerson': contactperson,
+                                    'contactNumber': contactnumber,
                                     'narration': narration,
                                   });
                                 },

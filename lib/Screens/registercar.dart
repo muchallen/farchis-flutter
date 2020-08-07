@@ -13,8 +13,8 @@ class RegisterCar extends StatelessWidget {
 
 class MyRegisterCar extends StatelessWidget {
   final _firestore = Firestore.instance;
-  String vehicle, model, regnumber, color;
-  int year;
+  String name, model, regnumber, color,ownerName,ownerMobile,year;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +65,7 @@ class MyRegisterCar extends StatelessWidget {
                                     Flexible(
                                       child: TextField(
                                         onChanged: (value){
-                                          vehicle = value;
+                                          name = value;
                                         },
                                         decoration: new InputDecoration(
                                           hintText: "e.g. Mercedes",
@@ -117,7 +117,7 @@ class MyRegisterCar extends StatelessWidget {
                                     Flexible(
                                       child: TextField(
                                         onChanged: (value){
-                                          year = value as int;
+                                          year = value;
                                         },
                                         decoration: new InputDecoration(
                                           hintText: " 2000 ",
@@ -185,14 +185,69 @@ class MyRegisterCar extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    Text("Name     "),
+                                    SizedBox(width: 5.0,),
+                                    Flexible(
+                                      child: TextField(
+                                        onChanged: (value){
+                                          ownerName = value;
+                                        },
+                                        decoration: new InputDecoration(
+                                          hintText: "e.g Owner Full Name  ",
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.green, width: 1.0),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    Text("Contact     "),
+                                    SizedBox(width: 5.0,),
+                                    Flexible(
+                                      child: TextField(
+                                        onChanged: (value){
+                                          ownerMobile = value;
+                                        },
+                                        decoration: new InputDecoration(
+                                          hintText: "Owner Mobile Contact No. ",
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.green, width: 1.0),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
                               SizedBox(height: 10.0,),
                               RaisedButton(
                                 onPressed: (){
-                                  _firestore.collection('RegisterAVehicle').add({
-                                    'vehicle': vehicle,
+                                  _firestore.collection('cars').add({
+                                    'name': name,
                                     'model': model,
                                     'regnumber': regnumber,
                                     'color': color,
+                                    'ownerName':ownerName,
+                                    'ownerMobile':ownerMobile,
+                                    'year':year
                                   });
                                 },
                                 color: Colors.blueAccent,

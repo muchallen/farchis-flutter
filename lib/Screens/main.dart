@@ -7,6 +7,7 @@ import 'package:farchis/Screens/ourService.dart';
 import 'package:farchis/Screens/quotation.dart';
 import 'package:farchis/Screens/registercar.dart';
 import 'package:farchis/Screens/towing.dart';
+import 'package:farchis/Screens/userprofile.dart';
 import 'package:farchis/Screens/weatherapp.dart';
 import 'package:flutter/material.dart';
 
@@ -65,8 +66,13 @@ class MyStartPage extends StatelessWidget {
                           SizedBox(height: 10,),
                           Text("user@email.com",textAlign: TextAlign.left, style: TextStyle(color: Colors.white)),
                           RaisedButton(
-                            onPressed: () {},
-                            child: const Text('register', style: TextStyle(fontSize: 15)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ProfilePage()),
+                              );
+                            },
+                            child: const Text('Update Profile', style: TextStyle(fontSize: 15)),
                           ),
                         ],
                       )

@@ -11,9 +11,16 @@ class Quotation extends StatelessWidget {
   }
 }
 
-class MyQuotation extends StatelessWidget {
+class MyQuotation extends StatefulWidget {
+  @override
+  _MyQuotationState createState() => _MyQuotationState();
+}
+
+class _MyQuotationState extends State<MyQuotation> {
   final _firestore = Firestore.instance;
+
   String service, parts, details;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,6 +91,7 @@ class MyQuotation extends StatelessWidget {
                             ],
                         ),
                          ),
+
                           Padding(
                             padding: EdgeInsets.all(10.0),
                             child: Row(
@@ -149,8 +157,8 @@ class MyQuotation extends StatelessWidget {
                           SizedBox(height: 10.0,),
                        RaisedButton(
                           onPressed: (){
-                            _firestore.collection('getAQuote').add({
-                              'service': service,
+                            _firestore.collection('servs').add({
+                              'name': service,
                               'parts': parts,
                               'details': details,
                             });
