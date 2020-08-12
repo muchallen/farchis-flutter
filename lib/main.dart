@@ -24,6 +24,7 @@ class StartPage  extends StatelessWidget {
 }
 
 class MyStartPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +53,8 @@ class MyStartPage extends StatelessWidget {
                           radius: 40,
                           backgroundColor: Color(0x00000000),
                           child: CircleAvatar(
-                            backgroundImage: AssetImage('images/pers.png'),
+                            backgroundImage: NetworkImage('https://firebasestorage.googleapis.com/v0/b/farchis-9dc1b.appspot.com/o/image_picker1953633526628070483.jpg?alt=media&token=31479a6f-a2e5-426e-a4dd-a8888e49c103'),
+                              //AssetImage('images/pers.png'),
                             radius: 28,
                           ),
                         ),

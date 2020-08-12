@@ -1,5 +1,5 @@
 import 'package:farchis/Screens/insuarancecontainer.dart';
-import 'package:farchis/Screens/main.dart';
+import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
 
 class InsuaranceServices extends StatelessWidget {

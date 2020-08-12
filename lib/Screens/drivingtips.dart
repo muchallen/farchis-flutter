@@ -1,5 +1,5 @@
 import 'package:farchis/Data/DrivingTipsData.dart';
-import 'package:farchis/Screens/main.dart';
+import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
 
 class DrivingTips extends StatelessWidget {
