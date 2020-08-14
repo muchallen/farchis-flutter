@@ -1,7 +1,15 @@
+import 'dart:io';
+
 import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:path/path.dart';
 
 class Towing extends StatelessWidget {
   @override
@@ -12,15 +20,52 @@ class Towing extends StatelessWidget {
   }
 }
 
-class MyTowing extends StatelessWidget {
+class MyTowing extends StatefulWidget {
+  @override
+  _MyTowingState createState() => _MyTowingState();
+}
+
+class _MyTowingState extends State<MyTowing> {
+  File _image;
+
+  String newImage;
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = image;
+      print('Image Path $_image');
+    });
+  }
+
+  Future uploadPic(BuildContext context) async{
+    String fileName = basename(_image.path);
+    newImage = fileName;
+    StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
+    setState(() {
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Image Uploaded')));
+    });
+  }
+
   final _firestore = Firestore.instance;
+
   final f =new DateFormat('yyyy-MM-dd hh:mm');
+
   String vehicle, location, contactperson, narration ,contactnumber;
+
   DateTime _dateTime;
+
   TextEditingController _vehicleController = TextEditingController();
+
   TextEditingController _narrationContoller = TextEditingController();
+
   TextEditingController _contactNameController = TextEditingController();
+
   TextEditingController _MobileController = TextEditingController();
+
   TextEditingController _location = TextEditingController();
 
   @override
@@ -207,18 +252,22 @@ class MyTowing extends StatelessWidget {
                                   child: Text(" Upload Image"),
                                 ),
                                 Center(
-                                  child: Icon(Icons.camera_alt),
+                                  child: InkWell(
+                                      onTap:(){   getImage();},
+                                      child: Icon(Icons.camera_alt)),
                                 ),
                                 SizedBox(height: 10.0,),
                                 RaisedButton(
                                   onPressed: (){
+                                    uploadPic(context);
                                     _firestore.collection('tows').add({
                                       'vehicle': vehicle,
                                       'location': location,
                                       'contactPerson': contactperson,
                                       'contactNumber': contactnumber,
                                       'narration': narration,
-                                      'date':f.format(DateTime.now()).toString()
+                                      'date':f.format(DateTime.now()).toString() ,
+                                      'image':newImage
                                     });
                                     _contactNameController.clear();
                                     _narrationContoller.clear();

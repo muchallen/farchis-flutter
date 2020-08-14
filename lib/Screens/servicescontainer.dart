@@ -72,24 +72,7 @@ class ServiceContainer extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.all(15.0),
-                  child: Row(
-                    children: <Widget>[
-                     FloatingActionButton(
-                        onPressed: () {
-                          // Add your onPressed code here!
-                        },
-                        child: Image.asset("images/facebookbutton.png"),
-                       
-                        backgroundColor: Color(0x00000000),
-                      ),
-                      SizedBox(width: 5.0,),
 
-
-                    ],
-                  ),
-                )
       ]
             ),
 

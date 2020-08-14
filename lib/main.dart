@@ -1,3 +1,6 @@
+import 'package:farchis/Data/Utility.dart';
+import 'package:farchis/Data/dbHelper.dart';
+import 'package:farchis/Data/usermodel.dart';
 import 'package:farchis/Screens/TrafficUpdatesContainer.dart';
 import 'package:farchis/Screens/drivingtips.dart';
 import 'package:farchis/Screens/drivingtipscontainer.dart';
@@ -10,6 +13,7 @@ import 'package:farchis/Screens/towing.dart';
 import 'package:farchis/Screens/userprofile.dart';
 import 'package:farchis/Screens/weatherapp.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 void main() {
   runApp(StartPage());
@@ -23,10 +27,40 @@ class StartPage  extends StatelessWidget {
   }
 }
 
-class MyStartPage extends StatelessWidget {
+class MyStartPage extends StatefulWidget {
+
+
+  @override
+  _MyStartPageState createState() => _MyStartPageState();
+}
+
+class _MyStartPageState extends State<MyStartPage> {
+  DBHelper dbHelper = new DBHelper();
+  List<User> users=[];
+  User profile;
+
+   refreshImages () async{
+    if(dbHelper.getPhotos()!=null) {
+      users= await dbHelper.getPhotos();
+    }
+    else
+      return null;
+  }
+  _MyStartPageState(){
+  refreshImages();
+
+    //print(users.length);
+
+  }
+
+  getUser(){
+    print(§"avo"+users[0].email.toString());
+    //users!=null ? profile=users[0]:profile=null;
+  }
 
   @override
   Widget build(BuildContext context) {
+    getUser();
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -64,9 +98,9 @@ class MyStartPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text("username",textAlign: TextAlign.left,style: TextStyle(color: Colors.white),),
+                          Text("user",textAlign: TextAlign.left,style: TextStyle(color: Colors.white),),
                           SizedBox(height: 10,),
-                          Text("user@email.com",textAlign: TextAlign.left, style: TextStyle(color: Colors.white)),
+                          Text("email",textAlign: TextAlign.left, style: TextStyle(color: Colors.white)),
                           RaisedButton(
                             onPressed: () {
                               Navigator.push(
@@ -189,16 +223,21 @@ class MyStartPage extends StatelessWidget {
                       padding: const EdgeInsets.all(15.0),
                       child: Column(
                         children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Icon(Icons.call,
-                                color: Colors.green,
-                              ),
-                              SizedBox(width:10.0),
-                              Text("Call Farchis"),
-                              Spacer(),
-                              Icon(Icons.chevron_right)
-                            ],
+                          InkWell(
+                            onTap: (){
+                              UrlLauncher.launch("tel://0783281382");
+                            },
+                            child: Row(
+                              children: <Widget>[
+                                Icon(Icons.call,
+                                  color: Colors.green,
+                                ),
+                                SizedBox(width:10.0),
+                                Text("Call Farchis"),
+                                Spacer(),
+                                Icon(Icons.chevron_right)
+                              ],
+                            ),
                           ),
                           Divider(),
                           InkWell(

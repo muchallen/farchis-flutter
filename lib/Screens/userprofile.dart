@@ -1,3 +1,6 @@
+import 'package:farchis/Data/Utility.dart';
+import 'package:farchis/Data/dbHelper.dart';
+import 'package:farchis/Data/usermodel.dart';
 import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,18 +18,24 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   File _image;
+  String imgString,fullName,email,mobile;
+  DBHelper dbHelper= new DBHelper();
+  List<User> users;
 
   @override
   Widget build(BuildContext context) {
 
     Future getImage() async {
-      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      var image = await ImagePicker.pickImage(source: ImageSource.gallery).then((imgFile) {
+        imgString = Utility.base64String(imgFile.readAsBytesSync());
+      });
 
       setState(() {
         _image = image;
         print('Image Path $_image');
       });
     }
+
 
     Future uploadPic(BuildContext context) async{
       String fileName = basename(_image.path);
@@ -98,143 +107,40 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(
                   height: 20.0,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text('Username',
-                                  style: TextStyle(
-                                      color: Colors.blueGrey, fontSize: 18.0)),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text('John Doe',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        child: Icon(
-                          FontAwesomeIcons.pen,
-                          color: Color(0xff476cfb),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text('Contact Number',
-                                  style: TextStyle(
-                                      color: Colors.blueGrey, fontSize: 18.0)),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text('eg. 0773456886',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        child: Icon(
-                          FontAwesomeIcons.pen,
-                          color: Color(0xff476cfb),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text('Physical Address',
-                                  style: TextStyle(
-                                      color: Colors.blueGrey, fontSize: 18.0)),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text('eg 202 Nedlaw Complex',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        child: Icon(
-                          FontAwesomeIcons.pen,
-                          color: Color(0xff476cfb),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
                 Container(
-                  margin: EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                  width: 240,
+                  child: Column(
                     children: <Widget>[
-                      Text('Email',
-                          style:
-                          TextStyle(color: Colors.blueGrey, fontSize: 18.0)),
-                      SizedBox(width: 20.0),
-                      Text('eg. johndoe@email.com',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold)),
+                      TextField(
+                        onChanged: (value){
+                          fullName=value;
+                        },
+                        decoration: new InputDecoration(
+                          hintText: " Full Name ",
+                        ),
+                      ),
+                      TextField(
+                        onChanged: (value){
+                          email=value;
+                        },
+                        decoration: new InputDecoration(
+                          hintText: " Email ",
+                        ),
+                      ),
+                      TextField(
+                        onChanged: (value){
+                          mobile=value;
+                        },
+                        decoration: new InputDecoration(
+                          hintText: "Mobile e.g 0773245678 ",
+                        ),
+                      )
+
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20.0,
-                ),
+                SizedBox(height: 20.0),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -253,13 +159,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     RaisedButton(
                       color: Color(0xff476cfb),
                       onPressed: () {
-                        uploadPic(context);
+                        //uploadPic(context);
+                        User user = new User (0,fullName,email,mobile,imgString);
+                        dbHelper.save(user);
                       },
 
                       elevation: 4.0,
                       splashColor: Colors.blueGrey,
                       child: Text(
-                        'Submit',
+                        'Update',
                         style: TextStyle(color: Colors.white, fontSize: 16.0),
                       ),
                     ),

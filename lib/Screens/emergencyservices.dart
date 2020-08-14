@@ -1,5 +1,6 @@
 import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EmergenceService extends StatelessWidget {
   @override
@@ -61,29 +62,34 @@ class MyEmergencyServices extends StatelessWidget {
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.all(10.0),
-                                    child: Card(
-                                      color: Colors.lightBlue,
+                                    child: InkWell(
+                                      onTap: (){
+                                        launch("tel://0783281382");
+                                      },
+                                      child: Card(
+                                        color: Colors.lightBlue,
 
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                              height: 80.0,
-                                              width: 100.0,
-                                          decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                          image: AssetImage("images/mars.png"),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Container(
+                                                height: 80.0,
+                                                width: 100.0,
+                                            decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                            image: AssetImage("images/mars.png"),
+
+                                                ),
+                                              ),
 
                                               ),
-                                            ),
-
-                                            ),
-                                            SizedBox(height: 5.0,),
-                                            Container(
-                                              child: Text("Tap to call", style: TextStyle(color: Colors.white),),
-                                            )
-                                          ],
+                                              SizedBox(height: 5.0,),
+                                              Container(
+                                                child: Text("Tap to call", style: TextStyle(color: Colors.white),),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -91,28 +97,33 @@ class MyEmergencyServices extends StatelessWidget {
                                   Spacer(),
                                   Padding(
                                     padding: const EdgeInsets.all(10.0),
-                                    child: Card(
-                                      color: Colors.redAccent,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                              height: 80.0,
-                                              width: 100.0,
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage("images/emras.png"),
+                                    child: InkWell(
+                                        onTap: (){
+                                          launch("tel://0783281382");
+                                        },
+                                      child: Card(
+                                        color: Colors.redAccent,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Container(
+                                                height: 80.0,
+                                                width: 100.0,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage("images/emras.png"),
 
+                                                  ),
                                                 ),
-                                              ),
 
-                                            ),
-                                            SizedBox(height: 5.0,),
-                                            Container(
-                                              child: Text("Tap to call" , style: TextStyle(color: Colors.white),),
-                                            )
-                                          ],
+                                              ),
+                                              SizedBox(height: 5.0,),
+                                              Container(
+                                                child: Text("Tap to call" , style: TextStyle(color: Colors.white),),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -123,28 +134,33 @@ class MyEmergencyServices extends StatelessWidget {
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.all(10.0),
-                                    child: Card(
-                                    color: Colors.deepPurple,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                              height: 80.0,
-                                              width: 100.0,
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage("images/netstar.png"),
+                                    child: InkWell(
+                                      onTap: (){
+                                        launch("tel://0783281382");
+                                      },
+                                      child: Card(
+                                      color: Colors.deepPurple,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Container(
+                                                height: 80.0,
+                                                width: 100.0,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage("images/netstar.png"),
 
+                                                  ),
                                                 ),
-                                              ),
 
-                                            ),
-                                            SizedBox(height: 5.0,),
-                                            Container(
-                                              child: Text("Tap to call", style: TextStyle(color: Colors.white),),
-                                            )
-                                          ],
+                                              ),
+                                              SizedBox(height: 5.0,),
+                                              Container(
+                                                child: Text("Tap to call", style: TextStyle(color: Colors.white),),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -152,28 +168,33 @@ class MyEmergencyServices extends StatelessWidget {
                                   Spacer(),
                                   Padding(
                                     padding: const EdgeInsets.all(10.0),
-                                    child: Card(
-                                      color: Colors.orangeAccent,
-                                      child: Padding(
+                                    child: InkWell(
+                                      onTap: (){
+                                        launch("tel://0783281382");
+                                      },
+                                      child: Card(
+                                        color: Colors.orangeAccent,
+                                        child: Padding(
 
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                              height: 80.0,
-                                              width: 100.0,
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage("images/psmi.png"),
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Container(
+                                                height: 80.0,
+                                                width: 100.0,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: AssetImage("images/psmi.png"),
+                                                  ),
                                                 ),
-                                              ),
 
-                                            ),
-                                            SizedBox(height: 5.0,),
-                                            Container(
-                                              child: Text("Tap to call", style: TextStyle(color: Colors.white),),
-                                            )
-                                          ],
+                                              ),
+                                              SizedBox(height: 5.0,),
+                                              Container(
+                                                child: Text("Tap to call", style: TextStyle(color: Colors.white),),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -186,96 +207,111 @@ class MyEmergencyServices extends StatelessWidget {
                         )
                     ),
                  SizedBox(height: 10.0,),
-                 Card(
-                   margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
-                   child: Row(
-                     mainAxisSize: MainAxisSize.max,
-                     children: <Widget>[
-                       Container(
-                           padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
-                           child: Container(
-                             width: 100.0,
-                              height: 80.0,
-                           decoration: BoxDecoration(
-                               image : DecorationImage(
-                               image: AssetImage("images/hospitalcross.png")
-                              ),
-                           ),
-                             child: null,
-                           ),
-                       ),
-                       Column(
-                         children: <Widget>[
-                           Text("Hospitals", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),),
-                           SizedBox(height: 5.0,),
-                           Text("+263 673 987"),
-                           Text("+263 673 987"),
-                           Text("Tap to call", style: TextStyle(color: Colors.green),)
-                         ],
-                       )
-                     ],
+                 InkWell(
+                   onTap: (){
+                     launch("tel://0783281382");
+                   },
+                   child: Card(
+                     margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
+                     child: Row(
+                       mainAxisSize: MainAxisSize.max,
+                       children: <Widget>[
+                         Container(
+                             padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
+                             child: Container(
+                               width: 100.0,
+                                height: 80.0,
+                             decoration: BoxDecoration(
+                                 image : DecorationImage(
+                                 image: AssetImage("images/hospitalcross.png")
+                                ),
+                             ),
+                               child: null,
+                             ),
+                         ),
+                         Column(
+                           children: <Widget>[
+                             Text("Hospitals", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),),
+                             SizedBox(height: 5.0,),
+                             Text("+263 673 987"),
+                             Text("+263 673 987"),
+                             Text("Tap to call", style: TextStyle(color: Colors.green),)
+                           ],
+                         )
+                       ],
+                     ),
                    ),
                  ),
                     SizedBox(height: 10.0,),
-                    Card(
-                      margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
-                            child: Container(
-                              width: 100.0,
-                              height: 80.0,
-                              decoration: BoxDecoration(
-                                image : DecorationImage(
-                                    image: AssetImage("images/zrplogo.png")
+                    InkWell(
+                      onTap: (){
+                        launch("tel://0783281382");
+                      },
+                      child: Card(
+                        margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
+                              child: Container(
+                                width: 100.0,
+                                height: 80.0,
+                                decoration: BoxDecoration(
+                                  image : DecorationImage(
+                                      image: AssetImage("images/zrplogo.png")
+                                  ),
                                 ),
+                                child: null,
                               ),
-                              child: null,
                             ),
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text("Police", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueAccent),),
-                              SizedBox(height: 5.0,),
-                              Text("+263 673 987"),
-                              Text("+263 673 987"),
-                              Text("Tap to call", style: TextStyle(color: Colors.green),)
-                            ],
-                          )
-                        ],
+                            Column(
+                              children: <Widget>[
+                                Text("Police", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueAccent),),
+                                SizedBox(height: 5.0,),
+                                Text("+263 673 987"),
+                                Text("+263 673 987"),
+                                Text("Tap to call", style: TextStyle(color: Colors.green),)
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: 10.0,),
-                    Card(
-                      margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
-                            child: Container(
-                              width: 100.0,
-                              height: 80.0,
-                              decoration: BoxDecoration(
-                                image : DecorationImage(
-                                    image: AssetImage("images/fireservicelogo.png")
+                    InkWell(
+                      onTap: (){
+                        launch("tel://0783281382");
+                      },
+                      child: Card(
+                        margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(20, 8.0, 20, 8),
+                              child: Container(
+                                width: 100.0,
+                                height: 80.0,
+                                decoration: BoxDecoration(
+                                  image : DecorationImage(
+                                      image: AssetImage("images/fireservicelogo.png")
+                                  ),
                                 ),
+                                child: null,
                               ),
-                              child: null,
                             ),
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text("FireBrigade", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),),
-                              SizedBox(height: 5.0,),
-                              Text("+263 673 987"),
-                              Text("+263 673 987"),
-                              Text("Tap to call", style: TextStyle(color: Colors.green),)
-                            ],
-                          )
-                        ],
+                            Column(
+                              children: <Widget>[
+                                Text("FireBrigade", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),),
+                                SizedBox(height: 5.0,),
+                                Text("+263 673 987"),
+                                Text("+263 673 987"),
+                                Text("Tap to call", style: TextStyle(color: Colors.green),)
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
 

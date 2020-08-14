@@ -201,7 +201,7 @@ class MyRegisterCar extends StatelessWidget {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: <Widget>[
-                                      Text("Contact     "),
+                                      Text("Contact "),
                                       SizedBox(width: 5.0,),
                                       Flexible(
                                         child: TextField(

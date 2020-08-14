@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>907377570025-5fcvdnmb4199dse77h3fspi6g7cklh8p.apps.googleusercontent.com</string>
+	<string>693765566700-36m97lehojss33t6lhjrita0sg634gqu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.907377570025-5fcvdnmb4199dse77h3fspi6g7cklh8p</string>
+	<string>com.googleusercontent.apps.693765566700-36m97lehojss33t6lhjrita0sg634gqu</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCfDTp9E1z3bHAiEmQl55sTc-nZeMrcI0k</string>
+	<string>AIzaSyANO6-VxqmQy5_IOiiQxRzR4FqP6DTq3JI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>907377570025</string>
+	<string>693765566700</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.farchis</string>
 	<key>PROJECT_ID</key>
-	<string>farchis-bbe96</string>
+	<string>farchis-9dc1b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>farchis-bbe96.appspot.com</string>
+	<string>farchis-9dc1b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:907377570025:ios:beb9214ee40b1bf4cec078</string>
+	<string>1:693765566700:ios:c348b92ece3b6ba22b35c9</string>
 	<key>DATABASE_URL</key>
-	<string>https://farchis-bbe96.firebaseio.com</string>
+	<string>https://farchis-9dc1b.firebaseio.com</string>
 </dict>
 </plist>

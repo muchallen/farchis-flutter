@@ -1,7 +1,15 @@
+
+import 'dart:io';
+
 import 'package:farchis/main.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:path/path.dart';
 
 class Quotation extends StatelessWidget {
   @override
@@ -18,6 +26,32 @@ class MyQuotation extends StatefulWidget {
 }
 
 class _MyQuotationState extends State<MyQuotation> {
+  File _image;
+  String newImage;
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = image;
+      print('Image Path $_image');
+    });
+  }
+
+  Future uploadPic(BuildContext context) async{
+    String fileName = basename(_image.path);
+    newImage = fileName;
+    StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
+    setState(() {
+      print("Profile Picture uploaded");
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text('Image Uploaded')));
+    });
+  }
+
+
+
+
   final _firestore = Firestore.instance;
   final f =new DateFormat('yyyy-MM-dd hh:mm');
   String service, parts, contact,contactNumber,vehicleName,email;
@@ -104,9 +138,9 @@ class _MyQuotationState extends State<MyQuotation> {
                                     borderSide: BorderSide(color: Colors.green, width: 1.0),
                                   ),
                                     ),
-                                    keyboardType: TextInputType.multiline,
+                                    keyboardType: TextInputType.text,
 
-                                    maxLines: 2,
+                                    maxLines: 1,
                                   ),
                                 )
                               ],
@@ -275,11 +309,17 @@ class _MyQuotationState extends State<MyQuotation> {
                               child: Text(" Upload Image"),
                             ),
                             Center(
-                              child: Icon(Icons.camera_alt),
+                              child: InkWell(
+                                onTap: (){
+                                  getImage();
+                                },
+                                  child: Icon(Icons.camera_alt)),
                             ),
                             SizedBox(height: 10.0,),
                          RaisedButton(
                             onPressed: (){
+                              uploadPic(context);
+
                               _firestore.collection('servs').add({
                                 'vehicle':vehicleName,
                                 'service': dropdownValue,
@@ -287,7 +327,8 @@ class _MyQuotationState extends State<MyQuotation> {
                                 'email':email,
                                 'contact':contact,
                                 'mobile':contactNumber,
-                                'date': f.format(DateTime.now()).toString()
+                                'date': f.format(DateTime.now()).toString(),
+                                'image':newImage
                               });
                               _contactNumberController.clear();
                               _emailContoller.clear();
