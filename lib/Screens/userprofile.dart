@@ -17,6 +17,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final _firestore = Firestore.instance;
   File _image;
   String imgString,fullName,email,mobile;
   DBHelper dbHelper= new DBHelper();
@@ -28,12 +29,13 @@ class _ProfilePageState extends State<ProfilePage> {
     Future getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery).then((imgFile) {
         imgString = Utility.base64String(imgFile.readAsBytesSync());
+        setState(() {
+          _image = imgFile;
+          print('Image Path $_image');
+        });
       });
 
-      setState(() {
-        _image = image;
-        print('Image Path $_image');
-      });
+
     }
 
 
@@ -54,7 +56,9 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
             icon: Icon(FontAwesomeIcons.arrowLeft),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(context,  MaterialPageRoute(
+                builder: (context) => MyStartPage(),
+              ),);
             }),
         title: Text('Edit Profile'),
       ),
@@ -147,7 +151,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     RaisedButton(
                       color: Color(0xff476cfb),
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        Navigator.pushReplacement(context,  MaterialPageRoute(
+                          builder: (context) => MyStartPage(),
+                        ),);
                       },
                       elevation: 4.0,
                       splashColor: Colors.blueGrey,
@@ -162,6 +168,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         //uploadPic(context);
                         User user = new User (0,fullName,email,mobile,imgString);
                         dbHelper.save(user);
+                        _firestore.collection('users').add({
+                          'fullname': fullName,
+                          'email': email,
+                          'mobile':mobile
+                        });
+                        Navigator.pushReplacement(context,  MaterialPageRoute(
+                          builder: (context) => MyStartPage(),
+                        ),);
                       },
 
                       elevation: 4.0,

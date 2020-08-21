@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:farchis/Data/Utility.dart';
 import 'package:farchis/Data/dbHelper.dart';
 import 'package:farchis/Data/usermodel.dart';
@@ -5,6 +7,7 @@ import 'package:farchis/Screens/TrafficUpdatesContainer.dart';
 import 'package:farchis/Screens/drivingtips.dart';
 import 'package:farchis/Screens/drivingtipscontainer.dart';
 import 'package:farchis/Screens/emergencyservices.dart';
+import 'package:farchis/Screens/events.dart';
 import 'package:farchis/Screens/insuaranceservices.dart';
 import 'package:farchis/Screens/ourService.dart';
 import 'package:farchis/Screens/quotation.dart';
@@ -29,7 +32,6 @@ class StartPage  extends StatelessWidget {
 
 class MyStartPage extends StatefulWidget {
 
-
   @override
   _MyStartPageState createState() => _MyStartPageState();
 }
@@ -38,29 +40,29 @@ class _MyStartPageState extends State<MyStartPage> {
   DBHelper dbHelper = new DBHelper();
   List<User> users=[];
   User profile;
+  String email;
+  Uint8List image;
+
 
    refreshImages () async{
     if(dbHelper.getPhotos()!=null) {
       users= await dbHelper.getPhotos();
+      if(users.length>0){
+        email = users[0].email;
+        image = Utility.dataFromBase64String(users[0].photoName);
+        setState(() {
+        });
+      }
     }
     else
       return null;
   }
   _MyStartPageState(){
   refreshImages();
-
-    //print(users.length);
-
-  }
-
-  getUser(){
-    print(§"avo"+users[0].email.toString());
-    //users!=null ? profile=users[0]:profile=null;
   }
 
   @override
   Widget build(BuildContext context) {
-    getUser();
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -87,8 +89,8 @@ class _MyStartPageState extends State<MyStartPage> {
                           radius: 40,
                           backgroundColor: Color(0x00000000),
                           child: CircleAvatar(
-                            backgroundImage: NetworkImage('https://firebasestorage.googleapis.com/v0/b/farchis-9dc1b.appspot.com/o/image_picker1953633526628070483.jpg?alt=media&token=31479a6f-a2e5-426e-a4dd-a8888e49c103'),
-                              //AssetImage('images/pers.png'),
+                            backgroundImage: //NetworkImage('https://firebasestorage.googleapis.com/v0/b/farchis-9dc1b.appspot.com/o/image_picker1953633526628070483.jpg?alt=media&token=31479a6f-a2e5-426e-a4dd-a8888e49c103'),
+                            users.length>0?MemoryImage(image):AssetImage('images/pers.png'),
                             radius: 28,
                           ),
                         ),
@@ -97,10 +99,9 @@ class _MyStartPageState extends State<MyStartPage> {
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("user",textAlign: TextAlign.left,style: TextStyle(color: Colors.white),),
-                          SizedBox(height: 10,),
-                          Text("email",textAlign: TextAlign.left, style: TextStyle(color: Colors.white)),
+                        children: <Widget>[ Text(users.length>0?users[0].fullName.toString():"username",textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
+
+                            Text(users.length>0?users[0].email.toString():"user@example.com",textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 10 ),),
                           RaisedButton(
                             onPressed: () {
                               Navigator.push(
@@ -108,12 +109,11 @@ class _MyStartPageState extends State<MyStartPage> {
                                 MaterialPageRoute(builder: (context) => ProfilePage()),
                               );
                             },
-                            child: const Text('Update Profile', style: TextStyle(fontSize: 15)),
+                            child: const Text('Update Profile', style: TextStyle(fontSize: 10)),
                           ),
                         ],
                       )
                     ],
-
                   ),
                 ),
                 SizedBox(height: 10.0,),
@@ -202,14 +202,22 @@ class _MyStartPageState extends State<MyStartPage> {
                           ),
                         ),
                         Divider(),
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.event,color: Colors.blueAccent),
-                            SizedBox(width:10.0),
-                            Text("Events"),
-                            Spacer(),
-                            Icon(Icons.chevron_right)
-                          ],
+                        InkWell(onTap: () {
+                          // Within the `FirstRoute` widget
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyEvents()),
+                          );
+                        },
+                          child: Row(
+                            children: <Widget>[
+                              Icon(Icons.event,color: Colors.blueAccent),
+                              SizedBox(width:10.0),
+                              Text("Events"),
+                              Spacer(),
+                              Icon(Icons.chevron_right)
+                            ],
+                          ),
                         ),
                         Divider(),
 
@@ -301,7 +309,7 @@ class _MyStartPageState extends State<MyStartPage> {
                                 Icon(Icons.assignment,
                                   color: Colors.purple,),
                                 SizedBox(width:10.0),
-                                Text("Insuarance Cover"),
+                                Text("Insurance Cover"),
                                 Spacer(),
                                 Icon(Icons.chevron_right)
                               ],
@@ -383,30 +391,7 @@ class _MyStartPageState extends State<MyStartPage> {
                       ),
                     )
                 ),
-                Card(
-                    margin: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Column(
-                        children: <Widget>[
 
-
-                          Row(
-                            children: <Widget>[
-                              Icon(Icons.stars,
-                                color: Colors.black26,),
-                              SizedBox(width:10.0),
-                              Text("Rate Our App"),
-                              Spacer(),
-                              Icon(Icons.chevron_right)
-                            ],
-                          ),
-
-
-                        ],
-                      ),
-                    )
-                ),
               ],
             ),
          ] ),

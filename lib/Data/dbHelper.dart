@@ -35,7 +35,10 @@ class DBHelper {
   }
 
   Future<User> save(User user) async {
+
     var dbClient = await db;
+    dbClient.execute("DROP TABLE IF EXISTS $TABLE");
+    dbClient.execute("CREATE TABLE $TABLE ($ID INTEGER, $FNAME TEXT,  $EMAIL TEXT, $MOBILE TEXT, $NAME TEXT)");
     user.id = await dbClient.insert(TABLE, user.toMap());
     print(user.fullName);
     print("added");
@@ -46,17 +49,15 @@ class DBHelper {
 
     if(null!=db) {
       var dbClient = await db;
-      List<Map> maps = await dbClient.query(TABLE, columns: [ID, NAME]);
+      List<Map> maps = await dbClient.query(TABLE, columns: [ID, FNAME,EMAIL,MOBILE,NAME]);
       List<User> users = [];
       if (maps.length > 0) {
         for (int i = 0; i < maps.length; i++) {
           users.add(User.fromMap(maps[i]));
         }
       }
-      print(users);
       return users;
     }else{
-      print("hapana");
       return null;
     }
   }
