@@ -16,6 +16,7 @@ import 'package:farchis/Screens/towing.dart';
 import 'package:farchis/Screens/userprofile.dart';
 import 'package:farchis/Screens/weatherapp.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 void main() {
@@ -37,26 +38,23 @@ class MyStartPage extends StatefulWidget {
 }
 
 class _MyStartPageState extends State<MyStartPage> {
-  DBHelper dbHelper = new DBHelper();
-  List<User> users=[];
-  User profile;
+  DBHelper dbHelper = new DBHelper() ;
+
+  List<User> profile = [];
   String email;
   Uint8List image;
 
+  Future refreshImages () async{
+     await dbHelper.getPhotos().then((value) => {
+       if(value!=null){
+     setState(() {
+       profile= value;
+       image=Utility.dataFromBase64String(profile[0].photoName);
+     })}
+      });
 
-   refreshImages () async{
-    if(dbHelper.getPhotos()!=null) {
-      users= await dbHelper.getPhotos();
-      if(users.length>0){
-        email = users[0].email;
-        image = Utility.dataFromBase64String(users[0].photoName);
-        setState(() {
-        });
-      }
-    }
-    else
-      return null;
-  }
+     }
+
   _MyStartPageState(){
   refreshImages();
   }
@@ -82,38 +80,44 @@ class _MyStartPageState extends State<MyStartPage> {
                   color: Color(0x00000000),
                   margin: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 10.0),
                   child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Container(
-                        child: CircleAvatar(
-                          radius: 40,
-                          backgroundColor: Color(0x00000000),
-                          child: CircleAvatar(
-                            backgroundImage: //NetworkImage('https://firebasestorage.googleapis.com/v0/b/farchis-9dc1b.appspot.com/o/image_picker1953633526628070483.jpg?alt=media&token=31479a6f-a2e5-426e-a4dd-a8888e49c103'),
-                            users.length>0?MemoryImage(image):AssetImage('images/pers.png'),
-                            radius: 28,
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 10,),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[ Text(users.length>0?users[0].fullName.toString():"username",textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
-
-                            Text(users.length>0?users[0].email.toString():"user@example.com",textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 10 ),),
-                          RaisedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => ProfilePage()),
-                              );
-                            },
-                            child: const Text('Update Profile', style: TextStyle(fontSize: 10)),
-                          ),
-                        ],
-                      )
-                    ],
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Container(
+                              child:profile.length>0? CircleAvatar(
+                                radius: 40,
+                                backgroundColor: Color(0x00000000),
+                                child: CircleAvatar(
+                                  backgroundColor: Color(0x00000000),
+                                  radius: 40,
+                                  backgroundImage:MemoryImage(image) ,
+                                ),
+                              ): CircleAvatar(
+                                radius: 40,
+                                backgroundColor: Color(0x00000000),
+                                child: CircleAvatar(
+                                  backgroundColor: Color(0x00000000),
+                                  radius: 40,
+                                  backgroundImage:AssetImage('images/pers.png') ,
+                                ),
+                            ),),
+                            SizedBox(width: 10,),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[ Text(profile.length>0?profile[0].fullName:"username",textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
+                                Text(profile.length>0?profile[0].email:"user@example.com",textAlign: TextAlign.left, style: TextStyle(color: Colors.white,fontSize: 10 ),),
+                                RaisedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => ProfilePage()),
+                                    );
+                                  },
+                                  child: const Text('Update Profile', style: TextStyle(fontSize: 10)),
+                                ),
+                              ],
+                            )
+                          ]
                   ),
                 ),
                 SizedBox(height: 10.0,),
@@ -233,7 +237,7 @@ class _MyStartPageState extends State<MyStartPage> {
                         children: <Widget>[
                           InkWell(
                             onTap: (){
-                              UrlLauncher.launch("tel://0783281382");
+                              UrlLauncher.launch("tel://2222222222");
                             },
                             child: Row(
                               children: <Widget>[

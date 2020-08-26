@@ -45,7 +45,7 @@ class DBHelper {
     return user;
   }
 
-  Future<List<User>> getPhotos() async {
+  Future <List<User>> getPhotos() async {
 
     if(null!=db) {
       var dbClient = await db;

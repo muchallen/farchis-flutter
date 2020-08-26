@@ -259,6 +259,20 @@ class _MyTowingState extends State<MyTowing> {
                                 SizedBox(height: 10.0,),
                                 RaisedButton(
                                   onPressed: (){
+                                    if(vehicle==null|| location==null||contactnumber==null||contactperson==null||narration==null){
+                                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('please complete all fields')));
+                                      return;
+
+                                    }
+                                    if(newImage==null){
+                                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('please upload an image')));
+                                      return;
+                                    }
+                                    if(contactnumber.length!=10){
+                                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('invalid contact number ')));
+                                      return;
+                                    }
+
                                     uploadPic(context);
                                     _firestore.collection('tows').add({
                                       'vehicle': vehicle,
@@ -268,6 +282,8 @@ class _MyTowingState extends State<MyTowing> {
                                       'narration': narration,
                                       'date':f.format(DateTime.now()).toString() ,
                                       'image':newImage
+                                    }).catchError((error){
+                                      return;
                                     });
                                     _contactNameController.clear();
                                     _narrationContoller.clear();

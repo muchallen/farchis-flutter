@@ -226,6 +226,15 @@ class MyRegisterCar extends StatelessWidget {
                                 SizedBox(height: 10.0,),
                                 RaisedButton(
                                   onPressed: (){
+                                    if(name==null || regnumber==null || color==null|| ownerName==null||ownerMobile==null||year==null){
+
+                                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('please complete all fields')));
+                                      return;
+                                    }
+                                    if(ownerMobile.length!=10){
+                                      Scaffold.of(context).showSnackBar(SnackBar(content: Text('invalid contact number ')));
+                                      return;
+                                    }
                                     _firestore.collection('cars').add({
                                       'vehicle': name,
                                       'regnumber': regnumber,

@@ -64,7 +64,7 @@ class MyEmergencyServices extends StatelessWidget {
                                     padding: const EdgeInsets.all(10.0),
                                     child: InkWell(
                                       onTap: (){
-                                        launch("tel://0783281382");
+                                        launch("tel://22222222");
                                       },
                                       child: Card(
                                         color: Colors.lightBlue,
@@ -99,7 +99,7 @@ class MyEmergencyServices extends StatelessWidget {
                                     padding: const EdgeInsets.all(10.0),
                                     child: InkWell(
                                         onTap: (){
-                                          launch("tel://0783281382");
+                                          launch("tel://22222222");
                                         },
                                       child: Card(
                                         color: Colors.redAccent,
@@ -136,7 +136,7 @@ class MyEmergencyServices extends StatelessWidget {
                                     padding: const EdgeInsets.all(10.0),
                                     child: InkWell(
                                       onTap: (){
-                                        launch("tel://0783281382");
+                                        launch("tel://2222222222");
                                       },
                                       child: Card(
                                       color: Colors.deepPurple,
@@ -170,7 +170,7 @@ class MyEmergencyServices extends StatelessWidget {
                                     padding: const EdgeInsets.all(10.0),
                                     child: InkWell(
                                       onTap: (){
-                                        launch("tel://0783281382");
+                                        launch("tel://222222222");
                                       },
                                       child: Card(
                                         color: Colors.orangeAccent,
@@ -209,7 +209,7 @@ class MyEmergencyServices extends StatelessWidget {
                  SizedBox(height: 10.0,),
                  InkWell(
                    onTap: (){
-                     launch("tel://0783281382");
+                     launch("tel://2222222222");
                    },
                    child: Card(
                      margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
@@ -245,7 +245,7 @@ class MyEmergencyServices extends StatelessWidget {
                     SizedBox(height: 10.0,),
                     InkWell(
                       onTap: (){
-                        launch("tel://0783281382");
+                        launch("tel://222222222");
                       },
                       child: Card(
                         margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),
@@ -281,7 +281,7 @@ class MyEmergencyServices extends StatelessWidget {
                     SizedBox(height: 10.0,),
                     InkWell(
                       onTap: (){
-                        launch("tel://0783281382");
+                        launch("tel://2222222222");
                       },
                       child: Card(
                         margin: EdgeInsets.fromLTRB(16.0,0,16.0,0),

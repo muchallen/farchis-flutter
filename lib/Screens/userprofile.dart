@@ -167,6 +167,25 @@ class _ProfilePageState extends State<ProfilePage> {
                       onPressed: () {
                         //uploadPic(context);
                         User user = new User (0,fullName,email,mobile,imgString);
+                        if(imgString==null){
+                          Scaffold.of(context).showSnackBar(SnackBar(content: Text(
+                              'please upload an image')));
+                          return ;
+                        }
+                        if(fullName.length<3){
+                          Scaffold.of(context).showSnackBar(SnackBar(content: Text(
+                              'invalid name')));
+                          return ;
+                        }
+                        if(!email.contains('@'))
+                          {
+                            Scaffold.of(context).showSnackBar(SnackBar(content: Text('invalid email address')));
+                            return;
+                          }
+                        if(mobile.length!=10){
+                          Scaffold.of(context).showSnackBar(SnackBar(content: Text('invalid mobile number')));
+                          return;
+                        }
                         dbHelper.save(user);
                         _firestore.collection('users').add({
                           'fullname': fullName,

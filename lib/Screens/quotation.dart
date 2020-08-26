@@ -319,7 +319,21 @@ class _MyQuotationState extends State<MyQuotation> {
                          RaisedButton(
                             onPressed: (){
                               uploadPic(context);
-
+                                if(vehicleName==null||dropdownValue==null||parts==null||email==null||contact==null||contactNumber==null){
+                                  Scaffold.of(context).showSnackBar(SnackBar(content: Text('please complete all fields')));
+                                  return;
+                                }
+                                if(newImage==null){
+                                  Scaffold.of(context).showSnackBar(SnackBar(content: Text('please upload an image')));
+                                  return;
+                                }
+                                if(contactNumber.length!=10){
+                                  Scaffold.of(context).showSnackBar(SnackBar(content: Text('invalid contact number')));
+                                  return;
+                                }
+                                if(!email.contains("@")){
+                                  Scaffold.of(context).showSnackBar(SnackBar(content: Text('invalid email address')));
+                                }
                               _firestore.collection('servs').add({
                                 'vehicle':vehicleName,
                                 'service': dropdownValue,
